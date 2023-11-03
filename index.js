@@ -8,12 +8,12 @@ const userRoutes = require('./routes/userRoutes')
 const warrantyRoutes = require('./routes/warrantyRoutes')
 const cookieParser = require('cookie-parser')
 const app = express()
+require('dotenv').config()
 
-const port = 3000
 app.use(bodyParser.json())
 app.use(cookieParser())
 connectDB()
-
+const port = process.env.PORT
 app.use(routes)
 app.use(productRoutes)
 app.use(orderRoutes)
